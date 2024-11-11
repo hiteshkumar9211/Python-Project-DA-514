@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huffman Coding Text Compression</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; text-align: center; }
+        h1 { color: #4a90e2; }
+        form { margin-top: 20px; }
+        textarea { width: 80%; height: 100px; margin-top: 10px; }
+        input[type="submit"] { padding: 10px 20px; background-color: #4a90e2; color: #fff; border: none; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #357abd; }
+        .result-section { margin-top: 30px; }
+        img { margin-top: 20px; max-width: 80%; }
+    </style>
+</head>
+<body>
+    <h1>Huffman Coding Text Compression</h1>
+    <form method="post">
+        <label for="text">Enter Text:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50" placeholder="Type or paste your text here..."></textarea><br><br>
+        <input type="submit" value="Compress">
+    </form>
+
+    {% if encoded_text %}
+        <div class="result-section">
+            <h2>Encoded Text:</h2>
+            <p id="encodedText">{{ encoded_text }}</p>
+            
+            <h2>Storage Size:</h2>
+            <p id="storageSize">{{ storage_size }} bytes</p>
+            
+            <h2>Frequency Plot:</h2>
+            <img src="{{ plot_path }}" alt="Frequency Plot" id="frequencyPlot">
+        </div>
+    {% endif %}
+
+    <!-- JavaScript for extra interactivity -->
+    <script>
+        // Example script to clear results when user starts typing again
+        document.getElementById("text").addEventListener("input", function() {
+            document.getElementById("encodedText").innerText = "";
+            document.getElementById("storageSize").innerText = "";
+            document.getElementById("frequencyPlot").style.display = "none";
+        });
+    </script>
+</body>
+</html>
+
+
