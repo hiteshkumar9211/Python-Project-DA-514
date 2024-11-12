@@ -1,0 +1,6 @@
+from collections import Counter
+import matplotlib.pyplot as plt
+import networkx as nx
+from flask import Flask, render_template, request
+from huffman_backend import generate_huffman_tree, encode_text, calculate_storage_size, plot_frequency, plot_huffman_tree
+import os
